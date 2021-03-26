@@ -15,7 +15,7 @@ export const useBase = () => {
     }
     return route.query ? route.query[field] : null;
   };
-  const WeeGoTo = (link: string, replace? : boolean): void => {
+  const WeeGoTo = (link: string, replace?: boolean): void => {
     if (!link) {
       return;
     }
@@ -26,6 +26,7 @@ export const useBase = () => {
       router.replace({ path: link });
     }
   };
+
   return {
     WeeGetParam,
     WeeGetQuery,

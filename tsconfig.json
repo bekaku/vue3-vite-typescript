@@ -21,7 +21,7 @@
       "./node_modules/vue-i18n/dist"
     ],
     "paths": {
-      "/@/*": ["src/*"]
+      "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },

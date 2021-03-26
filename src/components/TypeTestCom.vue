@@ -1,6 +1,11 @@
 <template>
   <hr class="my-5" />
   <div class="type-test">
+    <p>
+      <button @click="$emit('on-submit', 'from component btn')">
+        emit to parent
+      </button>
+    </p>
     <h1>{{ msg }}</h1>
     <p>Message Interface props :{{ message }}</p>
     <p>userNameList</p>
@@ -31,19 +36,9 @@
 
 <script lang="ts">
 import { defineComponent, ref, PropType, onMounted, reactive } from "vue";
-// import { User } from '/@/model/User.ts'
-interface ComplexMessage {
-  title: string;
-  okMessage: string;
-  cancelMessage: string;
-}
-interface User {
-  id: number;
-  userName: string;
-  fullName?: string;
-}
-type UserList = User;
-
+import { User } from "@/types/User";
+import { ComplexMessage } from "@/types/interface/Common";
+// type UserList = User;
 export default defineComponent({
   name: "TypeTest",
   inheritAttrs: false,
@@ -59,15 +54,18 @@ export default defineComponent({
       },
     },
   },
-  setup() {
+  setup(props, context) {
+    console.log("props", props, "context", context);
+
     const count = ref<number>(0);
     const currentUser: User = reactive({
       id: 4,
       userName: "bekaku",
       fullName: "Chanavee Bekaku",
+      created_at : "2021-09-09"
     });
 
-    const userNameList = ref<UserList[]>([
+    const userNameList = ref<User[]>([
       { id: 1, userName: "hoge" },
       { id: 2, userName: "fuga" },
       { id: 3, userName: "poco" },
@@ -82,7 +80,12 @@ export default defineComponent({
     };
 
     const addUser = (user?: User) => {
+      console.log("addUser");
       if (user) {
+        const now = new Date();
+        user.created_at = now.toString();
+
+        console.log("addUser", now, user);
         userNameList.value.push(user);
       } else {
         userNameList.value.push(currentUser);

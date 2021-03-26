@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 import { RouteRecordRaw } from "vue-router";
-import NotFound from "/@/pages/error404.vue";
+import NotFound from "@/pages/error404.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
@@ -9,17 +9,22 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/home",
     name: "Home",
-    component: () => import("/@/pages/index.vue"),
+    component: () => import("@/pages/index.vue"),
   },
   {
     path: "/i18n/:locale",
     name: "I18n",
-    component: () => import("/@/pages/i18n.vue"),
+    component: () => import("@/pages/i18n.vue"),
   },
   {
     path: "/type-test",
     name: "TypeTest",
-    component: () => import("/@/pages/type-test.vue"),
+    component: () => import("@/pages/TypeTest.vue"),
+  },
+  {
+    path: "/auth",
+    name: "Auth",
+    component: () => import("@/pages/Auth.vue"),
   },
   {
     path: "/:catchAll(.*)",
