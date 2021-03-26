@@ -4,6 +4,8 @@ Starter template for Vite + Vue js3 + TypeScript project
 ## Plugins
 1. vue-i18n 
 2. vue-router
+3. vuex
+4. js-cookie
 
 ## Getting Started
 

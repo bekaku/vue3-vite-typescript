@@ -2,12 +2,12 @@ import { createWebHistory, createRouter } from "vue-router";
 import { RouteRecordRaw } from "vue-router";
 import NotFound from "@/pages/error404.vue";
 const routes: Array<RouteRecordRaw> = [
+  // {
+  //   path: "/",
+  //   redirect: "/home",
+  // },
   {
     path: "/",
-    redirect: "/home",
-  },
-  {
-    path: "/home",
     name: "Home",
     component: () => import("@/pages/index.vue"),
   },
@@ -25,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/auth",
     name: "Auth",
     component: () => import("@/pages/Auth.vue"),
+  },
+  {
+    path: "/vuex",
+    name: "Vuex",
+    component: () => import("@/pages/vuex.vue"),
   },
   {
     path: "/:catchAll(.*)",

@@ -10,9 +10,6 @@
       <option value="th">th</option>
     </select>
   </form>
-  <p>
-    <button @click="SetLocale('th')">Change Locale</button>
-  </p>
 </template>
 
 <script lang="ts">

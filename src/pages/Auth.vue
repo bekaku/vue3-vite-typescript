@@ -11,7 +11,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useAuth } from "@/composables/useAuth";
-import { Auth } from "@/types/interface/Auth";
+import { Auth } from "@/types/Auth";
 export default defineComponent({
   components: {},
   setup() {

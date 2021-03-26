@@ -37,7 +37,7 @@
 <script lang="ts">
 import { defineComponent, ref, PropType, onMounted, reactive } from "vue";
 import { User } from "@/types/User";
-import { ComplexMessage } from "@/types/interface/Common";
+import { ComplexMessage } from "@/types/Common";
 // type UserList = User;
 export default defineComponent({
   name: "TypeTest",
