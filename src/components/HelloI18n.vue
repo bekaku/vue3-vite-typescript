@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { ref, defineComponent } from "vue";
-import { useLocale } from "@/composables/useLocale";
+import useLocale from "@/composables/useLocale";
 
 export default defineComponent({
   name: "HelloI18n",

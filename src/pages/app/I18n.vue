@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { defineComponent, defineAsyncComponent } from "vue";
-import { useBase } from "@/composables/useBase";
-import { useLocale } from "@/composables/useLocale";
+import useBase from "@/composables/useBase";
+import useLocale from "@/composables/useLocale";
 
 const HelloI18n = defineAsyncComponent(
   () => import("@/components/HelloI18n.vue")

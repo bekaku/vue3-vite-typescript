@@ -1,13 +1,12 @@
-import { LocaleOption } from "@/types/Common";
-export const SiteDomain =
-  process.env.NODE_ENV === "production" ? "bekaku.com" : "localhost";
-export const SiteUrl: string = `https://${SiteDomain}`;
-export const AppPrefix: string = "vue3_vite";
-export const AppVersion: string = "1.0.0";
-export const CodeVersion: number = 1;
-export const PoroductionMode: boolean = false;
-export const DefaultLocale: string = "th";
-export const DefaultPassword: string = "en";
+import { LocaleOption, DefaultAxiosInstance } from "@/interface/Common";
+// export const SiteDomain =process.env.NODE_ENV === "production" ? "bekaku.com" : "localhost";
+// export const SiteUrl: string = `https://${SiteDomain}`;
+export const AppPrefix = "vue3_vite";
+export const AppVersion = "1.0.0";
+export const CodeVersion = 1;
+export const PoroductionMode = false;
+export const DefaultLocale = "th";
+export const DefaultPassword = "en";
 export const LocaleOptions: LocaleOption[] = [
   { id: "en", name: "English" },
   { id: "th", name: "ไทย" },
@@ -35,19 +34,19 @@ export const LocalStorageAtt = {
   COOKIE_POLICY: `${AppPrefix}_cookie_policy`,
   UNIQE_TOKEN: `${AppPrefix}_uniqe_token`,
 };
-export const DefaultApiEndpoint = PoroductionMode
-  ? "https://centerapi.appedr.com"
-  : "http://localhost/grandats_project/grand-center-api";
-// export const DefaultApiEndpoint = PoroductionMode ? 'https://centerapi.appedr.com' : 'http://localhost/grandats_project/grand-center-api';
-// export const DefaultApiEndpoint = "https://reqres.in/api";
-export const ApiClient: string = "default";
-export const LocaleParam: string = "X-language";
-export const AuthorizationAtt: string = "Authorization";
-export const UniqeTokenAtt: string = "X-uniqe-token";
-export const DefaultAxiosHeader = {
+// export const DefaultApiEndpoint = PoroductionMode
+//   ? "https://centerapi.appedr.com"
+//   : "http://localhost/grandats_project/grand-center-api";
+export const DefaultApiEndpoint = "https://reqres.in/api";
+export const ApiClient = "default";
+export const UniqeTokenAtt = "X-uniqe-token";
+export const DefaultContentType = "application/json; charset=UTF-8";
+export const DefaultAxiosHeader: DefaultAxiosInstance = {
+  // baseURL: DefaultApiEndpoint,
   Accept: "application/json",
-  "Content-Type": "application/json; charset=UTF-8",
-  // LocaleParam: DefaultLocale,
+  "Content-Type": DefaultContentType,
+  "X-language": DefaultLocale,
+
   "Code-Version": CodeVersion,
   "X-Api-Client": ApiClient,
   Authorization: "",
@@ -62,7 +61,7 @@ export const DefaultAxiosHeader = {
 // export const AxiosMethod = { GET: 1, POST: 2, PUT: 3, DELETE: 4 };
 // export const CookieExpire = { Languge: 365, Theme: 365, Auth: 7 };
 export enum CookieExpire {
-  Languge = 365,
-  Theme = 365,
+  Languge = 365 * 10,
+  Theme = 365 * 10,
   Auth = 7,
 }

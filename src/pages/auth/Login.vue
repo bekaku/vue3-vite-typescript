@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Auth</h1>
+    <h1>Signin</h1>
     <p>
       {{ user ? user.email : "" }}
     </p>
@@ -10,15 +10,16 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { useAuth } from "@/composables/useAuth";
-import { Auth } from "@/types/Auth";
+import useAuth from "@/composables/useAuth";
+import { UserCredential } from "@/interface/Common";
+import useBase from "@/composables/useBase";
 export default defineComponent({
   components: {},
   setup() {
     const { SetAuth, CurrentAuth } = useAuth();
 
-    const user = ref<Auth | null>();
-
+    const user = ref<UserCredential | null>();
+    const { WeeGoTo } = useBase();
     user.value = CurrentAuth();
 
     console.log("AuthUser > ", user.value);
@@ -27,23 +28,24 @@ export default defineComponent({
       SetAuth({
         id: 1,
         username: "chanavee",
-        email: "baekaku@gmail.com",
+        email: "chanavee@gmail.com",
         status: true,
         rolesText: "Dev-Vee",
         picture: {
           path:
-            "http://localhost/outsource/sdpy-hospital-api/data/img/default.jpg",
-          x:
-            "http://localhost/outsource/sdpy-hospital-api/data/img/default_x.jpg",
-          xx:
-            "http://localhost/outsource/sdpy-hospital-api/data/img/default_xx.jpg",
-          xxx:
-            "http://localhost/outsource/sdpy-hospital-api/data/img/default_xxx.jpg",
+            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          x: "https://ionicframework.com/docs/demos/api/list/avatar-luke.png",
+          xx: "https://ionicframework.com/docs/demos/api/list/avatar-luke.png",
+          xxx: "https://ionicframework.com/docs/demos/api/list/avatar-luke.png",
         },
         userRoles: ["1"],
         apiKey:
           "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImtleSI6IjNiZDQ3Mzk0LWFkMTEtNTJhOC1iZmM0LWM4ZDkzYzk4MTY5NCIsImlhdCI6MTYxNjY2NDAyMywiZXhwIjoxNjE5MjU2MDIzfQ.2xxupPXG8XdZv_C6p8mht6-wKW5xOK5ufzJqtGd389c",
       });
+
+      setTimeout(() => {
+        WeeGoTo("/home", true);
+      }, 500);
     };
     return {
       SetAuth,

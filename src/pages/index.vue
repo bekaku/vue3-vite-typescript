@@ -1,26 +1,31 @@
 <template>
   <div>
-    <img alt="Vue I18n logo" width="125" src="@/assets/robot.png" />
-    <h1>{{ WeeTranslate("app.name") }}</h1>
-    <!-- <p>DefaultLocale {{ DefaultLocale }}</p> -->
+    <p>{{ WeeTranslate("base.pleaseWait") }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { useLocale } from "@/composables/useLocale";
-// import { SiteUrl } from "@/config/config";
+import { defineComponent } from "vue";
+import useLocale from "@/composables/useLocale";
+import useBase from "@/composables/useBase";
+import useAuth from "@/composables/useAuth";
 export default defineComponent({
   components: {},
   setup() {
     const { WeeTranslate } = useLocale();
-    //   setup(props, context) {
-    //   setup(props, {attrs,slots,emit, root, refs}) {
-    const count = ref(0);
+    const { WeeGoTo } = useBase();
+    const { CurrentAuth } = useAuth();
+    if (CurrentAuth()) {
+      setTimeout(() => {
+        WeeGoTo("/home", true);
+      }, 500);
+    } else {
+      setTimeout(() => {
+        WeeGoTo("/auth/login", true);
+      }, 500);
+    }
     return {
-      count,
       WeeTranslate,
-      // DefaultLocale,
     };
   },
 });

@@ -1,6 +1,6 @@
 import { useStore } from "vuex";
 import { computed } from "vue";
-export const useAppSetting = () => {
+export default () => {
   const store = useStore();
   // access a state in computed function store.state.count
   const count = computed(() => store.state.appSetting.count);

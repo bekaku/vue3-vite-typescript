@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useAppSetting } from "@/composables/useAppSetting";
+import useAppSetting from "@/composables/useAppSetting";
 export default defineComponent({
   components: {},
   setup() {

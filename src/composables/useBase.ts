@@ -1,5 +1,5 @@
 import { useRouter, useRoute } from "vue-router";
-export const useBase = () => {
+export default () => {
   const route = useRoute();
   const router = useRouter();
   //   console.log("HelloI18n > route Params", route.params, route.query); // fullPath ,  hash, meta, params, path, query, redirectedFrom

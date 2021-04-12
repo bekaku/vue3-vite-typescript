@@ -1,8 +1,8 @@
 import { LocalStorageAtt, CookieExpire } from "@/config/config";
-import { Auth } from "@/types/Auth";
+import { UserCredential } from "@/interface/Common";
 import Cookies from "js-cookie";
-export const useAuth = () => {
-  const SetAuth = (userData: Auth | undefined): void => {
+export default () => {
+  const SetAuth = (userData: UserCredential | undefined): void => {
     if (userData !== undefined) {
       Cookies.set(LocalStorageAtt.USER, JSON.stringify(userData), {
         expires: CookieExpire.Auth,
