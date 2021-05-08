@@ -4,6 +4,7 @@ export default class MockService extends Service {
     super();
   }
   getUserAll(page = 1) {
-    return this.callApiGet(`/users?page=${page}`);
+    // return this.callApiGet(`/users?page=${page}`);
+    return this.callApiGet(`/educationCalendarApi.do`);
   }
 }
