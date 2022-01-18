@@ -12,7 +12,7 @@
       </div>
     </template>
     <template v-if="!infinityLoad">
-      <p>{{ WeeTranslate("helper.nomoreData") }}</p>
+      <p>{{ tc("helper.nomoreData") }}</p>
     </template>
     <template v-else>
       <p>
@@ -35,7 +35,7 @@ import useLocale from "@/composables/useLocale";
 export default defineComponent({
   components: {},
   setup() {
-    const { WeeTranslate } = useLocale();
+    const { tc } = useLocale();
     const { WeeGoTo } = useBase();
     const mockService = new MockService();
     const page = ref<number>(1);
@@ -80,7 +80,7 @@ export default defineComponent({
       isFristLoad,
       infinityLoad,
       loadData,
-      WeeTranslate,
+      tc,
     };
   },
 });

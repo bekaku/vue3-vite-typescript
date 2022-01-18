@@ -1,5 +1,6 @@
 import { createStore, createLogger } from "vuex";
 import appSetting from "./modules/appSetting";
+import appAuthen from "./modules/appAuthen";
 const debug = process.env.NODE_ENV !== "production";
 export default createStore({
   state: {
@@ -23,6 +24,7 @@ export default createStore({
   },
   modules: {
     appSetting,
+    appAuthen,
   },
   strict: debug,
   plugins: debug ? [createLogger()] : [],

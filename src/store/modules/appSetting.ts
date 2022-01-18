@@ -2,6 +2,7 @@
 const state = {
   count: 0,
   locale: undefined,
+  drawer: true,
 };
 
 // getters
@@ -19,6 +20,9 @@ const mutations = {
   setLocale(state: any, lang: string) {
     state.locale = lang;
   },
+  setDrawer(state: any, open: boolean) {
+    state.drawer = open;
+  },
 };
 
 // actions
@@ -28,6 +32,9 @@ const actions = {
   },
   setLocaleAction(context: any, lang: string) {
     context.commit("setLocale", lang);
+  },
+  setDrawerAction(context: any, open: boolean) {
+    context.commit("setDrawer", open);
   },
 };
 

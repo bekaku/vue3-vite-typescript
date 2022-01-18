@@ -44,7 +44,7 @@ export const useBase = () => {
 export const useLocale = () => {
   const store = useStore();
   const { t, locale } = useI18n({ useScope: "global" });
-  const WeeTranslate = (field: string, pluralization?: any): string => {
+  const tc = (field: string, pluralization?: any): string => {
     return pluralization ? t(field, pluralization) : t(field);
   };
   const initAppLocale = () => {
@@ -71,7 +71,7 @@ export const useLocale = () => {
   return {
     localeStore,
     locale,
-    WeeTranslate,
+    tc,
     SetLocale,
     initAppLocale,
   };

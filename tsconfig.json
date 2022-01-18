@@ -17,7 +17,7 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "webpack-env",
       // "./node_modules/vue-i18n/dist"
     ],
     "paths": {

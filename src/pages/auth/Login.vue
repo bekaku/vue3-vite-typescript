@@ -1,10 +1,6 @@
 <template>
   <div>
-    <h1>Signin</h1>
-    <p>
-      {{ user ? user.email : "" }}
-    </p>
-    <p><button @click="signin">Signin</button></p>
+        <button @click="signin"> Signin </button>
   </div>
 </template>
 
@@ -23,6 +19,7 @@ export default defineComponent({
     user.value = CurrentAuth();
 
     console.log("AuthUser > ", user.value);
+    
 
     const signin = () => {
       SetAuth({
@@ -32,8 +29,7 @@ export default defineComponent({
         status: true,
         rolesText: "Dev-Vee",
         picture: {
-          path:
-            "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          path: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           x: "https://ionicframework.com/docs/demos/api/list/avatar-luke.png",
           xx: "https://ionicframework.com/docs/demos/api/list/avatar-luke.png",
           xxx: "https://ionicframework.com/docs/demos/api/list/avatar-luke.png",

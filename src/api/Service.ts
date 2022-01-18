@@ -1,5 +1,13 @@
-import { AxiosMethod, ApiResponse, DefaultAxiosInstance } from "../interface/Common";
-import { DefaultApiEndpoint, DefaultAxiosHeader } from "@/config/config";
+import {
+  AxiosMethod,
+  ApiResponse,
+  DefaultAxiosInstance,
+} from "../interface/Common";
+import {
+  DefaultApiEndpoint,
+  DefaultAxiosHeader,
+  PoroductionMode,
+} from "@/config/config";
 import axios, { AxiosInstance } from "axios";
 export default class Service {
   // constructor() {}
@@ -56,7 +64,12 @@ export default class Service {
         resolve(response);
       });
     }
-    // console.log(axioApi.defaults.baseURL + url)
+    if (!PoroductionMode) {
+      console.info(
+        "Service.ts > Api Call -> " + axiosApi.defaults.baseURL + url
+      );
+    }
+
     // console.log('jwt : '+axioApi.defaults.headers.Authorization);
     try {
       switch (method) {
@@ -90,7 +103,9 @@ export default class Service {
           });
       }
     } catch (errors) {
-      response.error = `${url} \n ${errors.message}`;
+      if (errors instanceof Error) {
+        response.error = `${url} \n ${errors.message}`;
+      }
       return new Promise((resolve) => {
         resolve(response);
       });

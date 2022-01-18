@@ -1,15 +1,34 @@
 <template>
-  <div id="nav">
-    <router-link to="/home">Home</router-link> |
-    <router-link to="/i18n/en?chageLocale=true">I18n</router-link> |
-    <router-link :to="{ name: 'TypeTest' }">TypeTest</router-link> |
-    <router-link to="/vuex">Vuex</router-link> |
-    <router-link to="/userList">UserList</router-link>
-  </div>
-  <router-view />
+  <!-- <v-app :theme="theme"> -->
+  <v-app>
+    <app-bar></app-bar>
+    <app-drawer></app-drawer>
+    <v-main>
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-main>
+    <app-footer></app-footer>
+  </v-app>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({});
+import { defineComponent, ref, defineAsyncComponent } from "vue";
+export default defineComponent({
+  components: {
+    AppBar: defineAsyncComponent(() => import("@/components/core/AppBar.vue")),
+    AppDrawer: defineAsyncComponent(
+      () => import("@/components/core/AppDrawer.vue")
+    ),
+    AppFooter: defineAsyncComponent(
+      () => import("@/components/core/AppFooter.vue")
+    ),
+  },
+  setup() {
+    const theme = ref("light");
+    return {
+      theme,
+    };
+  },
+});
 </script>

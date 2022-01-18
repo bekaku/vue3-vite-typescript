@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ WeeTranslate("base.pleaseWait") }}</p>
+    <p>{{ tc("base.pleaseWait") }}</p>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import useAuth from "@/composables/useAuth";
 export default defineComponent({
   components: {},
   setup() {
-    const { WeeTranslate } = useLocale();
+    const { tc } = useLocale();
     const { WeeGoTo } = useBase();
     const { CurrentAuth } = useAuth();
     if (CurrentAuth()) {
@@ -25,7 +25,7 @@ export default defineComponent({
       }, 500);
     }
     return {
-      WeeTranslate,
+      tc,
     };
   },
 });
