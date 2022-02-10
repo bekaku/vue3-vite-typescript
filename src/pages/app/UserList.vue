@@ -5,9 +5,9 @@
     <p v-if="isLoading">Loading</p>
   </template>
   <template v-else-if="userList.length > 0">
-    <template v-for="(item, index) in userList" :key="`user-list-${index}`">
+    <template v-for="(item, i) in userList" :key="`user-list-${i}`">
       <div>
-        <h2>{{ `${item.first_name} ${item.last_name}` }}</h2>
+        <h2>{{`${i} ${item.first_name} ${item.last_name}` }}</h2>
         <p>{{ item.email }}</p>
       </div>
     </template>

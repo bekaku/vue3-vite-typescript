@@ -30,15 +30,12 @@
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import useAuth from "@/composables/useAuth";
-import { mdiAccount, mdiAccountCheckOutline } from "@mdi/js";
 export default defineComponent({
   components: {},
   setup() {
     const { CurrentAuthStore } = useAuth();
     onMounted(() => {});
     const icons = {
-      mdiAccount,
-      mdiAccountCheckOutline,
     };
     return {
       CurrentAuthStore,

@@ -1,3 +1,19 @@
+:root {
+  --v-main-bg-color: #fafbfc;
+  /*--v-main-bg-color: #F0F2F5;*/
+  --v-main-bg-color-theme-dark: #171717;
+  --v-second-bg-color-theme-dark: #1c1c1d;
+
+  --v-main-border-color: #dcdcdc;
+  --v-main-border-color-theme-dark: #282829;
+
+  --v-main-border-light-color: #f0f0f0;
+  --v-main-border-lighter-color: #f8f8f8;
+  --v-main-border-light-color-theme-dark: #282829;
+
+  --v-color-white: #fff;
+  --v-text-muted: #9a9a9c;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -5,4 +21,13 @@
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.wee-bg-main {
+  background-color: var(--v-main-bg-color);
+}
+.wee-container-responsive-center {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }

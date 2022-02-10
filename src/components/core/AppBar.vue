@@ -24,17 +24,16 @@ import useBase from "@/composables/useBase";
 import useAppSetting from "@/composables/useAppSetting";
 import useAuth from "@/composables/useAuth";
 import useLocale from "@/composables/useLocale";
-import { mdiMagnify, mdiRocketLaunchOutline } from "@mdi/js";
 export default defineComponent({
   setup() {
     const { WeeGoTo } = useBase();
     const { drawer, setDrawer } = useAppSetting();
     const { CurrentAuthStore } = useAuth();
     const { tc } = useLocale();
-    const icons = { mdiMagnify };
+    const icons = {  };
     const notifications = ref([
       {
-        icon: mdiRocketLaunchOutline,
+        icon: null,
         message: tc("helper.loginToSystem", [tc("app.backend.title")]),
       },
     ]);
